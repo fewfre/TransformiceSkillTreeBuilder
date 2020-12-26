@@ -1,0 +1,858 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="css/style_skill_builder.css" media="all" type="text/css" rel="stylesheet">
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/includes.js"></script>
+
+	<script src="i18n/tfm.skilldata.en.min.js"></script>
+	
+	<script src="js/tfm.skilltree.min.js"></script>
+</head>
+<body>
+	Original by <a href="https://atelier801.com/topic?f=6&t=352437">Evilsantah</a>, and can be found <a href="https://web.archive.org/web/20160913122051/http://cheese.formice.com/skill-tree">here</a>. Minor changes by Fewfre. Thanks to the Wayback Machine / Internet Archive for archiving it all these years.
+	<br />
+	Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.
+	
+	<div id="container">
+			<div class="lang">		<span id="lang_select"><div class="dropdown"><a href="javascript:void(0)">Language</a><div class="noSelect" style="user-select: none;"><ul>
+			<li><a href="https://web.archive.org/web/20160913122051/http://cheese.formice.com/skill-tree">English</a></li><li><a href="https://web.archive.org/web/20160913122051/http://br.cheese.formice.com/skill-tree">Português</a></li><li><a href="https://web.archive.org/web/20160913122051/http://tr.cheese.formice.com/skill-tree">Türkçe</a></li><li><a href="https://web.archive.org/web/20160913122051/http://es.cheese.formice.com/skill-tree">Español</a></li><li><a href="https://web.archive.org/web/20160913122051/http://fr.cheese.formice.com/skill-tree">Français</a></li><li><a href="https://web.archive.org/web/20160913122051/http://ru.cheese.formice.com/skill-tree">Русский</a></li><li><a href="https://web.archive.org/web/20160913122051/http://nl.cheese.formice.com/skill-tree">Nederlands</a></li><li><a href="https://web.archive.org/web/20160913122051/http://no.cheese.formice.com/skill-tree">Norsk</a></li><li><a href="https://web.archive.org/web/20160913122051/http://pl.cheese.formice.com/skill-tree">Polski</a></li><li><a href="https://web.archive.org/web/20160913122051/http://hu.cheese.formice.com/skill-tree">Magyar</a></li><li><a href="https://web.archive.org/web/20160913122051/http://ro.cheese.formice.com/skill-tree">Română</a></li><li><a href="https://web.archive.org/web/20160913122051/http://id.cheese.formice.com/skill-tree">Bahasa Indonesia</a></li><li><a href="https://web.archive.org/web/20160913122051/http://cn.cheese.formice.com/skill-tree">中文</a></li><li><a href="https://web.archive.org/web/20160913122051/http://lv.cheese.formice.com/skill-tree">Latviešu</a></li><li><a href="https://web.archive.org/web/20160913122051/http://it.cheese.formice.com/skill-tree">Italiano</a></li><li><a href="https://web.archive.org/web/20160913122051/http://bg.cheese.formice.com/skill-tree">Български</a></li>		</ul></div></div>
+			</span>
+			</div>
+		
+			<div class="centered"><h2>Transformice Skill Tree Builder</h2><br><div id="skill-tree-builder">
+				
+				<div id="popup-overlay">
+					<div id="popup-window" class="rounded">
+						<a id="close-btn" href="javascript:void(0);"></a>
+						<span class="indent">Copy <span class="hotkey">Ctrl-C</span> one of these links to share your skill build</span>
+						<input id="bitly-link" type="text" value="" data-np-checked="1">
+						<input id="share-link" type="text" value="" data-np-checked="1">
+					</div>
+				</div>
+				<div id="skill-window" class="center">
+					<div id="skill-table"><div class="skill-table-column stats-panel">
+					<div id="xp-bar">
+						<div id="xp-bar-progress" style="width: 100%;"></div>
+					</div>
+					<button id="redist-btn" title="Redistribute"></button>
+					<button id="share-btn" title="Share it!"></button>
+					<div id="level-wings">
+						<div id="level-btn">
+							<span id="level-label" style="font-size: 25pt;">70</span>
+							<div id="up-btn" class="level-btn-img default"></div>
+							<div id="down-btn" class="level-btn-img default"></div>
+						</div>
+					</div>
+					<span id="remaining-pts">Remaining points: 69</span>
+				</div><div class="skill-table-column">
+					<ul class="skill-tiers"><li><div>
+					<div class="skill-item disabled" style="background-position: -901px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 817px; left: 475px;">
+						<span class="tooltip-header"><span class="tooltip-name">Cloud</span> - 0/1</span>
+						<p class="tooltip-desc">Summons a cloud.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -61px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 837px; left: 430px;">
+						<span class="tooltip-header"><span class="tooltip-name">Apple</span> - 0/5</span>
+						<p class="tooltip-desc">Summons an apple. You can summon objects inside the apple's summoning range. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -391px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Ancestral Spirit</span> - 0/5</span>
+						<p class="tooltip-desc">Allows you to keep summoning objects while you're dead for <span class="tooltip-desc-var">4</span> seconds.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -91px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Spring</span> - 0/1</span>
+						<p class="tooltip-desc">Summons a bonus that makes the mice bounce. Can be used <span class="tooltip-desc-var">3</span> times.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1291px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 896px; left: 428px;">
+						<span class="tooltip-header"><span class="tooltip-name">Anti-gravity</span> - 0/5</span>
+						<p class="tooltip-desc">Balls will fall slower. Level <span class="tooltip-desc-var">1</span>.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1051px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Teleporter</span> - 0/5</span>
+						<p class="tooltip-desc">Teleports a mouse next to you. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -151px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Speed boost</span> - 0/1</span>
+						<p class="tooltip-desc">Summons a bonus that increases the mice's speed. </p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -301px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 935px; left: 440px;">
+						<span class="tooltip-header"><span class="tooltip-name">Easy victory</span> - 0/5</span>
+						<p class="tooltip-desc">Summons a bonus that takes a mouse directly to the hole. Only works if the mouse already has the cheese. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -691px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Ambulance</span> - 0/5</span>
+						<p class="tooltip-desc">Revives <span class="tooltip-desc-var">1</span> dead mice.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1141px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Chief's food</span> - 0/1</span>
+						<p class="tooltip-desc">Gives your cheese to the chosen mouse.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1201px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 957px; left: 435px;">
+						<span class="tooltip-header"><span class="tooltip-name">Big Shaman</span> - 0/5</span>
+						<p class="tooltip-desc">Increases your Shaman's size by <span class="tooltip-desc-var">4</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -181px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 975px; left: 478px;">
+						<span class="tooltip-header"><span class="tooltip-name">Superstar</span> - 0/5</span>
+						<p class="tooltip-desc">When you dance, you make <span class="tooltip-desc-var">1</span> other mice dance around you.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -751px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 968px; left: 497px;">
+						<span class="tooltip-header"><span class="tooltip-name">Unburstable</span> - 0/1</span>
+						<p class="tooltip-desc">When you die, you can revive once.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item" style="background-position: -121px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 992px; left: 446px;">
+						<span class="tooltip-header"><span class="tooltip-name">Additional time</span> - 0/5</span>
+						<p class="tooltip-desc">Adds <span class="tooltip-desc-var">5</span> seconds to a round.</p>
+					</div>
+				</div><div>
+					<div class="skill-item" style="background-position: -271px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 994px; left: 476px;">
+						<span class="tooltip-header"><span class="tooltip-name">Big cheese</span> - 0/5</span>
+						<p class="tooltip-desc">Makes the cheese bigger by <span class="tooltip-desc-var">10</span>%.</p>
+					</div>
+				</div></li></ul>
+					<span class="green">Spiritual guide</span>
+					<span class="points green">0</span>
+				</div><div class="skill-table-column">
+					<ul class="skill-tiers"><li><div>
+					<div class="skill-item disabled" style="background-position: -511px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 810px; left: 617px;">
+						<span class="tooltip-header"><span class="tooltip-name">Angel</span> - 0/1</span>
+						<p class="tooltip-desc">You can deploy your wings by pressing the up button.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -481px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 860px; left: 578px;">
+						<span class="tooltip-header"><span class="tooltip-name">Transformice</span> - 0/5</span>
+						<p class="tooltip-desc">Gives transformation powers to the chosen mouse. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -331px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Stern mouse</span> - 0/5</span>
+						<p class="tooltip-desc">Gives <span class="tooltip-desc-var">1</span> more icecube(s).</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -361px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Acrobat</span> - 0/1</span>
+						<p class="tooltip-desc">You can summon while moving.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -841px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 891px; left: 570px;">
+						<span class="tooltip-header"><span class="tooltip-name">Tight budget</span> - 0/5</span>
+						<p class="tooltip-desc">Summons a tiny plank. Can be used <span class="tooltip-desc-var">2</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1081px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 902px; left: 628px;">
+						<span class="tooltip-header"><span class="tooltip-name">Personal teleporter</span> - 0/5</span>
+						<p class="tooltip-desc">Teleports you to the aimed position. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1351px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 878px; left: 657px;">
+						<span class="tooltip-header"><span class="tooltip-name">Projection</span> - 0/1</span>
+						<p class="tooltip-desc">Propels your Shaman forward by pressing twice left or right.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1261px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 939px; left: 569px;">
+						<span class="tooltip-header"><span class="tooltip-name">Chocokiss</span> - 0/5</span>
+						<p class="tooltip-desc">When you sit, <span class="tooltip-desc-var">1</span> mice next to you blow you a kiss.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1321px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 914px; left: 626px;">
+						<span class="tooltip-header"><span class="tooltip-name">Rocket scientist</span> - 0/5</span>
+						<p class="tooltip-desc">Ducking for some time allows you to propel yourself up. Level <span class="tooltip-desc-var">1</span>.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1171px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 922px; left: 649px;">
+						<span class="tooltip-header"><span class="tooltip-name">Companion crate</span> - 0/1</span>
+						<p class="tooltip-desc">Summons a Companion Crate.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -241px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Cleats</span> - 0/5</span>
+						<p class="tooltip-desc">Increases your Shaman's friction by <span class="tooltip-desc-var">20</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -451px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 957px; left: 613px;">
+						<span class="tooltip-header"><span class="tooltip-name">Diet</span> - 0/5</span>
+						<p class="tooltip-desc">Decreases your Shaman's mass by <span class="tooltip-desc-var">10</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -421px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 962px; left: 652px;">
+						<span class="tooltip-header"><span class="tooltip-name">Opportunist</span> - 0/1</span>
+						<p class="tooltip-desc">When the last mouse enters the hole, you automatically win.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item" style="background-position: -811px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 1003px; left: 605px;">
+						<span class="tooltip-header"><span class="tooltip-name">Endurance</span> - 0/5</span>
+						<p class="tooltip-desc">Increases your Shaman's speed by <span class="tooltip-desc-var">4</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item" style="background-position: -1231px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 1006px; left: 642px;">
+						<span class="tooltip-header"><span class="tooltip-name">Clean mouse</span> - 0/5</span>
+						<p class="tooltip-desc">When a mouse dies, a giant bubble appears. Triggers <span class="tooltip-desc-var">1</span> time(s).</p>
+					</div>
+				</div></li></ul>
+					<span class="blue">Wind master</span>
+					<span class="points blue">0</span>
+				</div><div class="skill-table-column">
+					<ul class="skill-tiers"><li><div>
+					<div class="skill-item disabled" style="background-position: -631px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 832px; left: 772px;">
+						<span class="tooltip-header"><span class="tooltip-name">Eagle eye</span> - 0/1</span>
+						<p class="tooltip-desc">Increases the summoning range by <span class="tooltip-desc-var">30</span>%.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -721px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 863px; left: 729px;">
+						<span class="tooltip-header"><span class="tooltip-name">Demolition worker</span> - 0/5</span>
+						<p class="tooltip-desc">You can delete a summoned object. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -991px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Architect</span> - 0/5</span>
+						<p class="tooltip-desc">You can change the transparency of a summoned object. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -871px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 872px; left: 885px;">
+						<span class="tooltip-header"><span class="tooltip-name">Sheep</span> - 0/1</span>
+						<p class="tooltip-desc">Summons an explosive sheep. Baa!</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 883px; left: 744px;">
+						<span class="tooltip-header"><span class="tooltip-name">Pre-inflated balloon</span> - 0/5</span>
+						<p class="tooltip-desc">The first <span class="tooltip-desc-var">1</span> balloons are instantly summoned.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -781px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 894px; left: 769px;">
+						<span class="tooltip-header"><span class="tooltip-name">Master Summoner</span> - 0/5</span>
+						<p class="tooltip-desc">Increases your summoning speed by <span class="tooltip-desc-var">6</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -211px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Anti-spirit</span> - 0/1</span>
+						<p class="tooltip-desc">The transparent spirit summons an Anti-spirit.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1111px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Aerodynamic balloon</span> - 0/5</span>
+						<p class="tooltip-desc">Increases the balloon's speed by <span class="tooltip-desc-var">10</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1021px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Stable rune</span> - 0/5</span>
+						<p class="tooltip-desc">Summons a stable rune. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -931px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Chocoplank</span> - 0/1</span>
+						<p class="tooltip-desc">Summons a chocolate plank</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -571px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 953px; left: 721px;">
+						<span class="tooltip-header"><span class="tooltip-name">Lead cannonball</span> - 0/5</span>
+						<p class="tooltip-desc">Increases the cannonballs' weight by <span class="tooltip-desc-var">20</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -601px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 970px; left: 768px;">
+						<span class="tooltip-header"><span class="tooltip-name">Super anvil</span> - 0/5</span>
+						<p class="tooltip-desc">Increases the anvils' weight by <span class="tooltip-desc-var">20</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -961px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 955px; left: 821px;">
+						<span class="tooltip-header"><span class="tooltip-name">Ice plank</span> - 0/1</span>
+						<p class="tooltip-desc">Summons an ice plank.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item" style="background-position: -661px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 1005px; left: 735px;">
+						<span class="tooltip-header"><span class="tooltip-name">Big spirit</span> - 0/5</span>
+						<p class="tooltip-desc">Increases the spirit's range of effect by <span class="tooltip-desc-var">10</span>%.</p>
+					</div>
+				</div><div>
+					<div class="skill-item" style="background-position: -31px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 998px; left: 800px;">
+						<span class="tooltip-header"><span class="tooltip-name">Multiple balls</span> - 0/5</span>
+						<p class="tooltip-desc">Summons <span class="tooltip-desc-var">1</span> more balls.</p>
+					</div>
+				</div></li></ul>
+					<span class="orange">Mechanician</span>
+					<span class="points orange">0</span>
+				</div><div class="skill-table-column">
+					<ul class="skill-tiers"><li><div>
+					<div class="skill-item disabled" style="background-position: -2251px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Shameow</span> - 0/1</span>
+						<p class="tooltip-desc">Turns you into a cat!</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1831px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Leaf</span> - 0/5</span>
+						<p class="tooltip-desc">Allows a mouse to hover with a leaf. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -2221px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Evolution</span> - 0/5</span>
+						<p class="tooltip-desc">Increases the jump power of a mouse. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1681px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Gregarious spirit</span> - 0/1</span>
+						<p class="tooltip-desc">Increases your summoning speed by <span class="tooltip-desc-var">2</span>% for each saved or dead mouse.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1741px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Thorns</span> - 0/5</span>
+						<p class="tooltip-desc">The planks are less slippery. Level <span class="tooltip-desc-var">1</span>.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1861px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 891px; left: 909px;">
+						<span class="tooltip-header"><span class="tooltip-name">Landslide</span> - 0/5</span>
+						<p class="tooltip-desc">Splits the cannon balls into rocks, <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -2191px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Renewal</span> - 0/1</span>
+						<p class="tooltip-desc">Resets all your skills.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1561px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 1072px; left: 1126px;">
+						<span class="tooltip-header"><span class="tooltip-name">Meep !</span> - 0/5</span>
+						<p class="tooltip-desc">Gives the "meep" ability to a mouse. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1711px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Go through there!</span> - 0/5</span>
+						<p class="tooltip-desc">Decreases the size of a mouse. Can be used <span class="tooltip-desc-var">1</span> times. </p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1771px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Nature's return</span> - 0/1</span>
+						<p class="tooltip-desc">Removes all the summoned objects.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1621px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Small but brawny</span> - 0/5</span>
+						<p class="tooltip-desc">Reduces <span class="tooltip-desc-var">4</span>% of your shaman's size.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -2071px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 975px; left: 931px;">
+						<span class="tooltip-header"><span class="tooltip-name">Spidermouse</span> - 0/5</span>
+						<p class="tooltip-desc">Summons a spider web. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1951px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 964px; left: 971px;">
+						<span class="tooltip-header"><span class="tooltip-name">Earth symbol</span> - 0/1</span>
+						<p class="tooltip-desc">Summons a triangle-shaped object.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item" style="background-position: -2011px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 1018px; left: 907px;">
+						<span class="tooltip-header"><span class="tooltip-name">Campfire</span> - 0/5</span>
+						<p class="tooltip-desc">Place a campfire for some friendly time! Last <span class="tooltip-desc-var">4</span> seconds.</p>
+					</div>
+				</div><div>
+					<div class="skill-item" style="background-position: -2101px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Reflex</span> - 0/5</span>
+						<p class="tooltip-desc">Increases your summoning speed but decreases your summoning range of <span class="tooltip-desc-var">4</span>%.</p>
+					</div>
+				</div></li></ul>
+					<span class="yellow">Wildling</span>
+					<span class="points yellow">0</span>
+				</div><div class="skill-table-column">
+					<ul class="skill-tiers"><li><div>
+					<div class="skill-item disabled" style="background-position: -2161px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 824px; left: 1059px;">
+						<span class="tooltip-header"><span class="tooltip-name">Controlled disintegration</span> - 0/1</span>
+						<p class="tooltip-desc">When a mouse dies, it leaves a small electrical arc on which other mice can bounce.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1921px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Booster</span> - 0/5</span>
+						<p class="tooltip-desc">Applies a booster. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1981px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Handymouse</span> - 0/5</span>
+						<p class="tooltip-desc">Hooks two objects together with a string. Can be used <span class="tooltip-desc-var">2</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -2131px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Big plank</span> - 0/1</span>
+						<p class="tooltip-desc">Summons a very big plank.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1471px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 901px; left: 1032px;">
+						<span class="tooltip-header"><span class="tooltip-name">Gravitational anomaly</span> - 0/5</span>
+						<p class="tooltip-desc">Disables gravity for <span class="tooltip-desc-var">2</span> seconds.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1801px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Grapnel</span> - 0/5</span>
+						<p class="tooltip-desc">Allows you to hang everywhere. Can be used <span class="tooltip-desc-var">2</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -2041px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">S</span> - 0/1</span>
+						<p class="tooltip-desc">Summons an S shaped object.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1891px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Stop!</span> - 0/5</span>
+						<p class="tooltip-desc">Freezes the mice around you during <span class="tooltip-desc-var">2</span> seconds.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1381px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Restorative</span> - 0/5</span>
+						<p class="tooltip-desc">Prevents an object turning on itself. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1501px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Mad scientist</span> - 0/1</span>
+						<p class="tooltip-desc">Cannon balls can now be upwardly directed.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item disabled" style="background-position: -1531px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 969px; left: 1034px;">
+						<span class="tooltip-header"><span class="tooltip-name">Antigravity</span> - 0/5</span>
+						<p class="tooltip-desc">Removes an object's gravity. Can be used <span class="tooltip-desc-var">2</span> times. </p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1651px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 973px; left: 1070px;">
+						<span class="tooltip-header"><span class="tooltip-name">Rollout</span> - 0/5</span>
+						<p class="tooltip-desc">Allows a mouse to roll on itself. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div><div>
+					<div class="skill-item disabled" style="background-position: -1591px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/1</span>
+						</div>
+					</div>
+					<div class="skill-tooltip" style="display: none; top: 974px; left: 1116px;">
+						<span class="tooltip-header"><span class="tooltip-name">Solitary</span> - 0/1</span>
+						<p class="tooltip-desc">No more soulmate.</p>
+					</div>
+				</div></li><li><div>
+					<div class="skill-item" style="background-position: -1411px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Anger</span> - 0/5</span>
+						<p class="tooltip-desc">When you get angry, <span class="tooltip-desc-var">1</span> mice around you starts crying.</p>
+					</div>
+				</div><div>
+					<div class="skill-item" style="background-position: -1441px -1px;">
+						<div class="skill-item-layer">
+							<span class="skill-item-level">0/5</span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name">Recycling</span> - 0/5</span>
+						<p class="tooltip-desc">Removes a nail. Can be used <span class="tooltip-desc-var">1</span> times.</p>
+					</div>
+				</div></li></ul>
+					<span class="purple">Physicist</span>
+					<span class="points purple">0</span>
+				</div></div>
+				</div>
+				<div id="footer">Created by <a href="https://web.archive.org/web/20160913122051/http://cheese.formice.com/mouse/Evilsantah.217470" target="_blank">Evilsantah</a>. All images © Atelier 801.</div>
+	
+				<script type="text/template" id="skill-template">
+					<div class="skill-item">
+						<div class="skill-item-layer">
+							<span class="skill-item-level"><%= level %>/<%= maxLevel %></span>
+						</div>
+					</div>
+					<div class="skill-tooltip">
+						<span class="tooltip-header"><span class="tooltip-name"><%= name %></span> - <%= level %>/<%= maxLevel%></span>
+						<p class="tooltip-desc"></p>
+					</div>
+				</script>
+				<script type="text/template" id="skill-tree-template">
+					<ul class="skill-tiers"></ul>
+					<span class="<%= spanClass %>"><%= name %></span>
+					<span class="points <%= spanClass %>"><%= points %></span>
+				</script>
+				<script type="text/template" id="stats-template">
+					<div id="xp-bar">
+						<div id="xp-bar-progress"></div>
+					</div>
+					<button id="redist-btn" title="Redistribute"></button>
+					<button id="share-btn" title="Share it!"></button>
+					<div id="level-wings">
+						<div id="level-btn">
+							<span id="level-label"><%= level %></span>
+							<div id="up-btn" class="level-btn-img default"></div>
+							<div id="down-btn" class="level-btn-img default"></div>
+						</div>
+					</div>
+					<span id="remaining-pts">Remaining points: <%= remainingPoints %></span>
+				</script>
+		
+	</div></div>	</div>
+</body>
+</html>

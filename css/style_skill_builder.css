@@ -1,0 +1,595 @@
+/**
+ * @author Evilsantah
+ *		http://cheese.formice.com/mouse/Evilsantah.217470
+ *		http://cheese.formice.com/forum/members/evilsantah.170440/
+ * @date 2/24/2015
+ **/
+#skill-tree-builder * {
+	margin: 0;
+	padding: 0;
+}
+/* Credits to whoever made this font public */
+@font-face {
+	font-family: 'soopafreshregular';
+	src: url('/css/fonts/soopafre.eot');
+	src: url('/css/fonts/soopafre.eot#iefix') format('embedded-opentype'),
+		url('/css/fonts/soopafre.woff') format('woff'),
+		url('/css/fonts/soopafre.ttf') format('truetype'),
+		url('/css/fonts/soopafre.svg#soopafreshregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+#skill-tree-builder {
+	color: #c2c2da;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 9pt;
+	background-color: #6a7495;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#skill-tree-builder a {
+	text-decoration: none;
+}
+#skill-tree-builder a:focus {
+	outline: none;
+}
+/* Transformice-styled buttons */
+#skill-tree-builder button.tfm {
+	color: #c2c2da;
+	background-color: #3c5064;
+	font-size: 8pt;
+
+	border: 0;
+	width: 80%;
+	height: 20px;
+	cursor: pointer;
+
+	box-shadow: -1px -1px 0px #6a8fa2, 1px 1px 0px #11171c;
+	border-radius: 5px;
+}
+#skill-tree-builder button.tfm:active, button.tfm.pressed {
+	color: #fad100;
+	box-shadow: 1px 1px 0px #6a8fa2, -1px -1px 0px #11171c;
+}
+#skill-tree-builder button.tfm:hover {
+	color: #032546;
+}
+#skill-tree-builder button.tfm::-moz-focus-inner {
+	border: 0;
+}
+#skill-tree-builder .center {
+	margin: 0 auto;
+	text-align: left;
+}
+#skill-tree-builder .rounded {
+	border-radius: 8px;
+}
+#skill-tree-builder .shadowed {
+	box-shadow: 0px -1px 0px #6a8fa2, 0px 1px 0px #11171c;
+}
+#skill-tree-builder div#popup-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	background-color: rgba(15,15,15,.5);
+	display: none;
+}
+#skill-tree-builder div#popup-window {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 400px;
+	margin: -115px 0 0 -200px;
+	padding: 20px;
+	background-color: rgba(0,0,0,.7);
+
+	text-align: left;
+	color: #cfcfcf;
+	font-size: 12px;
+}
+#skill-tree-builder #popup-window span.hotkey {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+	font-size: 12px;
+	color: #6a76bd;
+	display: inline-block;
+	border: 1px solid #6a76bd;
+	padding: 3px;
+	margin: 0 3px;
+}
+#skill-tree-builder #popup-window span.indent:before {
+	content: "\00bb\00a0";
+}
+#skill-tree-builder #popup-window input {
+	float: left;
+	height: 35px;
+	margin-top: 10px;
+	padding: 0 4px;
+
+	font-size: 14px;
+	outline: none;
+	color: #555;
+
+	border: 1px solid #111;
+	background-color: #cfcfcf;
+
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+#skill-tree-builder #popup-window input[type="text"] {
+	width: 390px;
+
+	-moz-box-shadow: 0px 1px 0px white;
+	-webkit-box-shadow: 0px 1px 0px white;
+	box-shadow: 0px 1px 0px white;
+
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+
+	-webkit-box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,.3);
+	-moz-box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,.3);
+	box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,.3);
+}
+#skill-tree-builder #popup-window input#bitly-link {
+	width: 320px;
+	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/bitly.png');
+	background-repeat: no-repeat;
+	background-position: 330px center;
+	padding-right: 74px;
+}
+#skill-tree-builder #popup-window a#close-btn {
+	display: block;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	top: 4px;
+	right: 4px;
+	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/close.png') no-repeat left top;
+}
+#skill-tree-builder div#skill-window {
+	width: 749px;
+	height: 370px;
+	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/background.png') no-repeat left top;
+}
+#skill-tree-builder #skill-window * {
+	/* Can't select this stuff */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#skill-tree-builder div#skill-table {
+	width: 100%;
+	height: 100%;
+}
+#skill-tree-builder div.skill-table-column {
+	width: 20%;
+	height: 270px;
+	text-align: center;
+	float: left;
+}
+#skill-tree-builder .skill-table-column:first-child {
+	position: relative;
+	top: -30px;
+	width: 100%;
+	height: 16%;
+	clear: both;
+	margin-bottom: 12px;
+}
+#skill-tree-builder .skill-table-column:not(:first-child):not(:last-child) {
+	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/separator.png') no-repeat center right;
+}
+/*.skill-table-column:last-child {
+	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/separator-2.png') no-repeat center left;
+}*/
+#skill-tree-builder .skill-table-column span {
+	display: block;
+}
+/*.skill-table-column span.points {
+	margin-top: 1px;
+}*/
+#skill-tree-builder .skill-table-column span.green {
+	color: #10ec8f;
+}
+#skill-tree-builder .skill-table-column span.blue {
+	color: #0690f6;
+}
+#skill-tree-builder .skill-table-column span.orange {
+	color: #f0670c;
+}
+#skill-tree-builder .skill-table-column span.yellow {
+	color: #e8dfa2;
+}
+#skill-tree-builder .skill-table-column span.purple {
+	color: #d5a2e8;
+}
+#skill-tree-builder ul.skill-tiers {
+	margin-top: 6px;
+	list-style-type: none;
+}
+#skill-tree-builder .skill-tiers li {
+	height: 38px;
+}
+#skill-tree-builder .skill-tiers li > div {
+	display: inline-block;
+	position: static;
+	margin: 0 4px;
+}
+#skill-tree-builder div.skill-item {
+	position: relative;
+	overflow: hidden;
+	width: 28px;
+	height: 28px;
+
+	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/skills2.png');
+	background-repeat: no-repeat;
+	background-position: -1px -1px;
+	border: 1px solid #6c6c6c;
+
+	box-shadow: 1px 1px 0px #242424, -1px -1px 0px #cfcfcf;
+	border-radius: 6px;
+	/*border-top-left-radius: 8px 4px;
+	border-top-right-radius: 8px 4px;*/
+
+	-webkit-filter: brightness(.85);
+	-moz-filter: brightness(.85);
+	-ms-filter: brightness(.85);
+	-o-filter: brightness(.85);
+	filter: brightness(.85);	
+}
+#skill-tree-builder .skill-item:hover {
+	-webkit-filter: brightness(1.15);
+	-moz-filter: brightness(1.15);
+	-ms-filter: brightness(1.15);
+	-o-filter: brightness(1.15);
+	filter: brightness(1.15);
+}
+#skill-tree-builder div.skill-item-layer {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+#skill-tree-builder span.skill-item-level {
+	position: absolute;
+	right: 1px;
+	bottom: 0;
+	color: #eee;
+	font-size: 7pt;
+	text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000;
+}
+
+/* Skill icon status disabled */
+#skill-tree-builder .skill-item.disabled {
+	border-color: #363636;
+	box-shadow: 1px 1px 0px #121212, -1px -1px 0px #686868;
+}
+#skill-tree-builder .skill-item.disabled > .skill-item-layer {
+	background-color: rgba(0,0,0,0.5);
+	cursor: default;
+}
+#skill-tree-builder .skill-item.disabled .skill-item-level {
+	display: none;
+}
+
+/* Skill icon status incomplete */
+#skill-tree-builder .skill-item.incomplete {
+	border-color: #00dd00;
+	box-shadow: 1px 1px 0px #003f00, -1px -1px 0px #cffbcf;
+}
+#skill-tree-builder .skill-item.incomplete .skill-item-level {
+	color: #00dc43;
+}
+
+/* Skill icon status complete */
+#skill-tree-builder .skill-item.complete {
+	border-color: #df8b1a;
+	box-shadow: 1px 1px 0px #402807, -1px -1px 0px #f6debd;
+}
+#skill-tree-builder .skill-item.complete .skill-item-level {
+	color: #e8962c;
+}
+
+/* Mozilla FF, IE and Opera don't support filter yet */
+#skill-tree-builder .skill-item-layer.hover {
+	background-color: rgba(255,255,255,0.2);
+}
+#skill-tree-builder .skill-item.disabled > .skill-item-layer.hover {
+	background-color: rgba(0,0,0,0.35);
+}
+
+/* Skill tooltip */
+#skill-tree-builder div.skill-tooltip {
+	display: none;
+	position: absolute;
+	z-index: 100;
+
+	left: 0;
+	top: 0;
+	width: 185px;
+
+	padding: 3px 6px;
+	text-align: left;
+	font-size: 8pt;
+	line-height: 15px;
+
+	border: 3px solid #000;
+	border-radius: 2px;
+	background-color: #222233;
+	color: #6b76bf;
+}
+#skill-tree-builder .skill-tooltip span {
+	display: inline;
+}
+#skill-tree-builder span.tooltip-name {
+	color: #009b9b;
+}
+#skill-tree-builder span.tooltip-desc-var {
+	color: #b8bb2e;
+}
+
+/* Statistics panel */
+#skill-tree-builder div#xp-bar {
+	position: absolute;
+	top: 56px;
+	left: 122px;
+	width: 500px;
+	height: 12px;
+}
+#skill-tree-builder div#xp-bar-progress {
+	height: 100%;
+	background-color: #08cece;
+
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+
+	border: 1px solid black;
+}
+#skill-tree-builder #xp-bar .green {
+	border-color: #102600;
+	background-color: #10ec8f;
+
+	background-image: -moz-linear-gradient(rgba(240, 237, 126, 0.25), rgba(254, 245, 160, 0.4) 49%, rgba(161, 203, 31, 0.15) 50%, rgba(203, 223, 66, 0.1)),
+		-moz-linear-gradient(to right, #2a5c1c, #4e9f39 10%, #b4e329 30%, #d4ef6b 50%, #b4e329 70%, #4e9f39 90%, #2a5c1c);
+	background-image: -o-linear-gradient(rgba(240, 237, 126, 0.25), rgba(254, 245, 160, 0.4) 49%, rgba(161, 203, 31, 0.15) 50%, rgba(203, 223, 66, 0.1)),
+		-o-linear-gradient(to right, #2a5c1c, #4e9f39 10%, #b4e329 30%, #d4ef6b 50%, #b4e329 70%, #4e9f39 90%, #2a5c1c);
+	background-image: -webkit-linear-gradient(rgba(240, 237, 126, 0.25), rgba(254, 245, 160, 0.4) 49%, rgba(161, 203, 31, 0.15) 50%, rgba(203, 223, 66, 0.1)),
+		-webkit-linear-gradient(to right, #2a5c1c, #4e9f39 10%, #b4e329 30%, #d4ef6b 50%, #b4e329 70%, #4e9f39 90%, #2a5c1c);
+	background-image: linear-gradient(rgba(240, 237, 126, 0.25), rgba(254, 245, 160, 0.4) 49%, rgba(161, 203, 31, 0.15) 50%, rgba(203, 223, 66, 0.1)),
+		linear-gradient(to right, #2a5c1c, #4e9f39 10%, #b4e329 30%, #d4ef6b 50%, #b4e329 70%, #4e9f39 90%, #2a5c1c);
+}
+#skill-tree-builder #xp-bar .blue {
+	border-color: #092b37;
+	background-color: #0690f6;
+
+	background-image: -moz-linear-gradient(rgba(240, 237, 126, 0.25), rgba(254, 245, 160, 0.4) 56%, rgba(161, 203, 31, 0.05) 57%, rgba(203, 223, 66, 0.1)),
+		-moz-linear-gradient(to right, #092b37, #197b8a 10%, #7afffe 30%, #e0ffff 50%, #7afffe 70%, #197b8a 90%, #092b37);
+	background-image: -o-linear-gradient(rgba(240, 237, 126, 0.25), rgba(254, 245, 160, 0.4) 56%, rgba(161, 203, 31, 0.05) 57%, rgba(203, 223, 66, 0.1)),
+		-o-linear-gradient(to right, #092b37, #197b8a 10%, #7afffe 30%, #e0ffff 50%, #7afffe 70%, #197b8a 90%, #092b37);
+	background-image: -webkit-linear-gradient(rgba(240, 237, 126, 0.25), rgba(254, 245, 160, 0.4) 56%, rgba(161, 203, 31, 0.05) 57%, rgba(203, 223, 66, 0.1)),
+		-webkit-linear-gradient(to right, #092b37, #197b8a 10%, #7afffe 30%, #e0ffff 50%, #7afffe 70%, #197b8a 90%, #092b37);
+	background-image: linear-gradient(rgba(120, 228, 241, 0.25), rgba(230, 255, 255, 0.4) 49%, rgba(31, 165, 203, 0.15) 50%, rgba(67, 202, 202, 0.1)),
+		linear-gradient(to right, #092b37, #197b8a 10%, #7afffe 30%, #e0ffff 50%, #7afffe 70%, #197b8a 90%, #092b37);
+}
+#skill-tree-builder #xp-bar .orange {
+	border-color: #2b0a00;
+	background-color: #f0670c;
+
+	background-image: -moz-linear-gradient(rgba(255, 148, 70, 0.25), rgba(255, 254, 209, 0.4) 49%, rgba(237, 62, 37, 0.15) 50%, rgba(251, 66, 19, 0.1)),
+		-moz-linear-gradient(to right, #2b0a00, #640b04 10%, #fd6815 30%, #ffffe8 50%, #fd6815 70%, #640b04 90%, #2b0a00);
+	background-image: -o-linear-gradient(rgba(255, 148, 70, 0.25), rgba(255, 254, 209, 0.4) 49%, rgba(237, 62, 37, 0.15) 50%, rgba(251, 66, 19, 0.1)),
+		-o-linear-gradient(to right, #2b0a00, #640b04 10%, #fd6815 30%, #ffffe8 50%, #fd6815 70%, #640b04 90%, #2b0a00);
+	background-image: -webkit-linear-gradient(rgba(255, 148, 70, 0.25), rgba(255, 254, 209, 0.4) 49%, rgba(237, 62, 37, 0.15) 50%, rgba(251, 66, 19, 0.1)),
+		-webkit-linear-gradient(to right, #2b0a00, #640b04 10%, #fd6815 30%, #ffffe8 50%, #fd6815 70%, #640b04 90%, #2b0a00);
+	background-image: linear-gradient(rgba(255, 148, 70, 0.25), rgba(255, 254, 209, 0.4) 49%, rgba(237, 62, 37, 0.15) 50%, rgba(251, 66, 19, 0.1)),
+		linear-gradient(to right, #2b0a00, #640b04 10%, #fd6815 30%, #ffffe8 50%, #fd6815 70%, #640b04 90%, #2b0a00);
+}
+#skill-tree-builder #xp-bar .yellow {
+	border-color: #3a2901;
+	background-color: #e8dfa2;
+
+	background-image: -moz-linear-gradient(rgba(253, 187, 83, 0.25), rgba(255, 238, 215, 0.4) 49%, rgba(232, 108, 7, 0.3) 50%, rgba(252, 166, 73, 0.3)),
+		-moz-linear-gradient(to right, #3a2901, #8f4c0b 10%, #eec034 30%, #fcffc0 50%, #eec034 70%, #8f4c0b 90%, #3a2901);
+	background-image: -o-linear-gradient(rgba(253, 187, 83, 0.25), rgba(255, 238, 215, 0.4) 49%, rgba(232, 108, 7, 0.3) 50%, rgba(252, 166, 73, 0.3)),
+		-o-linear-gradient(to right, #3a2901, #8f4c0b 10%, #eec034 30%, #fcffc0 50%, #eec034 70%, #8f4c0b 90%, #3a2901);
+	background-image: -webkit-linear-gradient(rgba(253, 187, 83, 0.25), rgba(255, 238, 215, 0.4) 49%, rgba(232, 108, 7, 0.3) 50%, rgba(252, 166, 73, 0.3)),
+		-webkit-linear-gradient(to right, #3a2901, #8f4c0b 10%, #eec034 30%, #fcffc0 50%, #eec034 70%, #8f4c0b 90%, #3a2901);
+	background-image: linear-gradient(rgba(253, 187, 83, 0.25), rgba(255, 238, 215, 0.4) 49%, rgba(232, 108, 7, 0.3) 50%, rgba(252, 166, 73, 0.3)),
+		linear-gradient(to right, #3a2901, #8f4c0b 10%, #eec034 30%, #fcffc0 50%, #eec034 70%, #8f4c0b 90%, #3a2901);
+}
+#skill-tree-builder #xp-bar .purple {
+	border-color: #290229;
+	background-color: #d5a2e8;
+
+	background-image: -moz-linear-gradient(rgba(200, 120, 241, 0.25), rgba(242, 207, 255, 0.4) 49%, rgba(124, 57, 152, 0.3) 50%, rgba(146, 47, 191, 0.3)),
+		-moz-linear-gradient(to right, #290229, #912dbc 10%, #f1b3ff 30%, #fcedff 50%, #f1b3ff 70%, #912dbc 90%, #290229);
+	background-image: -o-linear-gradient(rgba(200, 120, 241, 0.25), rgba(242, 207, 255, 0.4) 49%, rgba(124, 57, 152, 0.3) 50%, rgba(146, 47, 191, 0.3)),
+		-o-linear-gradient(to right, #290229, #912dbc 10%, #f1b3ff 30%, #fcedff 50%, #f1b3ff 70%, #912dbc 90%, #290229);
+	background-image: -webkit-linear-gradient(rgba(200, 120, 241, 0.25), rgba(242, 207, 255, 0.4) 49%, rgba(124, 57, 152, 0.3) 50%, rgba(146, 47, 191, 0.3)),
+		-webkit-linear-gradient(to right, #290229, #912dbc 10%, #f1b3ff 30%, #fcedff 50%, #f1b3ff 70%, #912dbc 90%, #290229);
+	background-image: linear-gradient(rgba(200, 120, 241, 0.25), rgba(242, 207, 255, 0.4) 49%, rgba(124, 57, 152, 0.3) 50%, rgba(146, 47, 191, 0.3)),
+		linear-gradient(to right, #290229, #912dbc 10%, #f1b3ff 30%, #fcedff 50%, #f1b3ff 70%, #912dbc 90%, #290229);
+}
+#skill-tree-builder div#level-wings {
+	position: relative;
+	width: 526px;
+	height: 86px;
+	margin: 10px auto;
+	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/illu-niveau2.png');
+}
+#skill-tree-builder div#level-btn {
+	position: absolute;
+	width: 56px;
+	height: 56px;
+	top: 24px;
+	left: 234px;
+
+	-moz-border-radius: 28px;
+	-webkit-border-radius: 28px;
+	border-radius: 28px;
+
+	border: 1px solid white;
+
+	background-image: -moz-linear-gradient(#b3d3d0, #94bbc0);
+	background-image: -o-linear-gradient(#b3d3d0, #94bbc0);
+	background-image: -webkit-linear-gradient(#b3d3d0, #94bbc0);
+	background-image: linear-gradient(#b3d3d0, #94bbc0);
+}
+#skill-tree-builder #level-btn.green {
+	background-image: -moz-radial-gradient(23% 15%, farthest-side, #d1e1b3, #a4ba7d 50%, #61812c 90%, #53751b);
+	background-image: -o-radial-gradient(23% 15%, farthest-side, #d1e1b3, #a4ba7d 50%, #61812c 90%, #53751b);
+	background-image: -webkit-radial-gradient(23% 15%, farthest-side, #d1e1b3, #a4ba7d 50%, #61812c 90%, #53751b);
+	background-image: radial-gradient(farthest-side at 23% 15%, #d1e1b3, #a4ba7d 50%, #61812c 90%, #53751b);
+}
+#skill-tree-builder #level-btn.blue {
+	background-image: -moz-radial-gradient(23% 15%, farthest-side, #aed4e1, #80b8c4 50%, #378e99 90%, #21818b);
+	background-image: -o-radial-gradient(23% 15%, farthest-side, #aed4e1, #80b8c4 50%, #378e99 90%, #21818b);
+	background-image: -webkit-radial-gradient(23% 15%, farthest-side, #aed4e1, #80b8c4 50%, #378e99 90%, #21818b);
+	background-image: radial-gradient(farthest-side at 23% 15%, #aed4e1, #80b8c4 50%, #378e99 90%, #21818b);
+}
+#skill-tree-builder #level-btn.orange {
+	background-image: -moz-radial-gradient(23% 15%, farthest-side, #f4c2bd, #ea9285 50%, #d94d33 90%, #d63f22);
+	background-image: -o-radial-gradient(23% 15%, farthest-side, #f4c2bd, #ea9285 50%, #d94d33 90%, #d63f22);
+	background-image: -webkit-radial-gradient(23% 15%, farthest-side, #f4c2bd, #ea9285 50%, #d94d33 90%, #d63f22);
+	background-image: radial-gradient(farthest-side at 23% 15%, #f4c2bd, #ea9285 50%, #d94d33 90%, #d63f22);
+}
+#skill-tree-builder #level-btn.yellow {
+	background-image: -moz-radial-gradient(23% 15%, farthest-side, #f5dd39, #ddb009 50%, #945c00 90%, #854c00);
+	background-image: -o-radial-gradient(23% 15%, farthest-side, #f5dd39, #ddb009 50%, #945c00 90%, #854c00);
+	background-image: -webkit-radial-gradient(23% 15%, farthest-side, #f5dd39, #ddb009 50%, #945c00 90%, #854c00);
+	background-image: radial-gradient(farthest-side at 23% 15%, #f5dd39, #ddb009 50%, #945c00 90%, #854c00);
+}
+#skill-tree-builder #level-btn.purple {
+	background-image: -moz-radial-gradient(23% 15%, farthest-side, #e5c5f9, #c39bdc 50%, #8e5baf 90%, #79429e);
+	background-image: -o-radial-gradient(23% 15%, farthest-side, #e5c5f9, #c39bdc 50%, #8e5baf 90%, #79429e);
+	background-image: -webkit-radial-gradient(23% 15%, farthest-side, #e5c5f9, #c39bdc 50%, #8e5baf 90%, #79429e);
+	background-image: radial-gradient(farthest-side at 23% 15%, #e5c5f9, #c39bdc 50%, #8e5baf 90%, #79429e);
+}
+#skill-tree-builder span#level-label {
+	font-family: 'soopafreshregular';
+	font-size: 25pt;
+	line-height: 56px;
+	cursor: default;
+
+	color: #1b6562;
+}
+#skill-tree-builder #level-btn.green > #level-label {
+	color: white;
+	text-shadow: 0 0 3px #254a06, 0 0 3px #254a06, 0 0 3px #254a06, 0 0 3px #254a06;
+}
+#skill-tree-builder #level-btn.blue > #level-label {
+	color: white;
+	text-shadow: 0 0 3px #002f51, 0 0 3px #002f51, 0 0 3px #002f51, 0 0 3px #002f51;
+}
+#skill-tree-builder #level-btn.orange > #level-label {
+	color: white;
+	text-shadow: 0 0 3px #510800, 0 0 3px #510800, 0 0 3px #510800, 0 0 3px #510800;
+}
+#skill-tree-builder #level-btn.yellow > #level-label {
+	color: white;
+	text-shadow: 0 0 3px #6d3109, 0 0 3px #6d3109, 0 0 3px #6d3109, 0 0 3px #6d3109;
+}
+#skill-tree-builder #level-btn.purple > #level-label {
+	color: white;
+	text-shadow: 0 0 3px #600c96, 0 0 3px #600c96, 0 0 3px #600c96, 0 0 3px #600c96;
+}
+#skill-tree-builder #level-label:after {
+	font-size: 8pt;
+	content: "\00a0";
+}
+#skill-tree-builder span#remaining-pts {
+	color: #6a76bd;
+	margin-top: 272px;
+}
+#skill-tree-builder div.level-btn-img {
+	position: absolute;
+	left: 22px;
+	width: 13px;
+	height: 11px;
+	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/arrows7.png');
+	background-repeat: no-repeat;
+}
+#skill-tree-builder div.level-btn-img.default {
+	left: 23px;
+	width: 10px;
+	height: 8px;
+	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/arrows.png');
+}
+#skill-tree-builder div#up-btn {
+	top: 3px;
+}
+#skill-tree-builder div#up-btn.default {
+	top: 5px;
+}
+#skill-tree-builder div#down-btn {
+	bottom: 3px;
+	background-position: 0 -11px;
+}
+#skill-tree-builder div#down-btn.default {
+	bottom: 5px;
+	background-position: 0 -8px;
+}
+#skill-tree-builder .stats-panel button {
+	border: 0;
+	cursor: pointer;
+	position: absolute;
+	width: 31px;
+	height: 31px;
+	right: 54px;
+	top: 49px;
+	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/buttons.png') no-repeat left top;
+}
+#skill-tree-builder .stats-panel button:hover {
+	background-position: 0 -31px;
+}
+#skill-tree-builder .stats-panel button#share-btn {
+	right: 20px;
+	background-position: -31px 0px;
+}
+#skill-tree-builder .stats-panel button#share-btn:hover {
+	background-position: -31px -31px;
+}
+#skill-tree-builder .stats-panel button::-moz-focus-inner {
+	border: 0;
+}
+
+/* Footer */
+#skill-tree-builder div#footer {
+	padding-top: 5px;
+}
+#skill-tree-builder #footer a {
+	color: #b8bb2e;
+}
+#skill-tree-builder #footer a:hover {
+	color: #f4fa32;
+}
+
+/*
+     FILE ARCHIVED ON 05:15:59 Mar 25, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 16:40:20 Dec 26, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 154.599
+  LoadShardBlock: 123.94 (3)
+  exclusion.robots: 0.343
+  exclusion.robots.policy: 0.329
+  load_resource: 175.665 (2)
+  PetaboxLoader3.resolve: 106.627 (3)
+  PetaboxLoader3.datanode: 78.248 (5)
+  CDXLines.iter: 23.643 (3)
+  RedisCDXSource: 2.868
+  esindex: 0.017
+*/

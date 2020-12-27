@@ -26,6 +26,7 @@
 	background-color: #6a7495;
 	text-align: center;
 	padding-top: 25px;
+	padding-bottom: 10px;
 }
 
 #skill-tree-builder a {
@@ -138,7 +139,7 @@
 }
 #skill-tree-builder #popup-window input#bitly-link {
 	width: 320px;
-	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/bitly.png');
+	background-image: url('../images/bitly.png');
 	background-repeat: no-repeat;
 	background-position: 330px center;
 	padding-right: 74px;
@@ -150,12 +151,13 @@
 	height: 16px;
 	top: 4px;
 	right: 4px;
-	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/close.png') no-repeat left top;
+	background: url('../images/close.png') no-repeat left top;
 }
 #skill-tree-builder div#skill-window {
+	margin-top: 25px;
 	width: 749px;
 	height: 370px;
-	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/background.png') no-repeat left top;
+	background: url('../images/background.png') no-repeat left top;
 }
 #skill-tree-builder #skill-window * {
 	/* Can't select this stuff */
@@ -185,10 +187,10 @@
 	margin-bottom: 12px;
 }
 #skill-tree-builder .skill-table-column:not(:first-child):not(:last-child) {
-	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/separator.png') no-repeat center right;
+	background: url('../images/separator.png') no-repeat center right;
 }
 /*.skill-table-column:last-child {
-	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/separator-2.png') no-repeat center left;
+	background: url('../images/separator-2.png') no-repeat center left;
 }*/
 #skill-tree-builder .skill-table-column span {
 	display: block;
@@ -229,7 +231,7 @@
 	width: 28px;
 	height: 28px;
 
-	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/skills2.png');
+	background-image: url('../images/skills2.png');
 	background-repeat: no-repeat;
 	background-position: -1px -1px;
 	border: 1px solid #6c6c6c;
@@ -423,7 +425,7 @@
 	width: 526px;
 	height: 86px;
 	margin: 10px auto;
-	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/illu-niveau2.png');
+	background-image: url('../images/illu-niveau2.png');
 }
 #skill-tree-builder div#level-btn {
 	position: absolute;
@@ -514,14 +516,14 @@
 	left: 22px;
 	width: 13px;
 	height: 11px;
-	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/arrows7.png');
+	background-image: url('../images/arrows7.png');
 	background-repeat: no-repeat;
 }
 #skill-tree-builder div.level-btn-img.default {
 	left: 23px;
 	width: 10px;
 	height: 8px;
-	background-image: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/arrows.png');
+	background-image: url('../images/arrows.png');
 }
 #skill-tree-builder div#up-btn {
 	top: 3px;
@@ -545,7 +547,7 @@
 	height: 31px;
 	right: 54px;
 	top: 49px;
-	background: url('https://web.archive.org/web/20160325051559im_/http://spicyemu.formice.com/images/skilltree/buttons.png') no-repeat left top;
+	background: url('../images/buttons.png') no-repeat left top;
 }
 #skill-tree-builder .stats-panel button:hover {
 	background-position: 0 -31px;

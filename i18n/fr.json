@@ -1,0 +1,744 @@
+{
+	"lang": "Français",
+	"title": "Constructeur d'Arbre de Compétence",
+	"copy_hotkey": "Copiez $1 ce lien pour partager votre arbre de compétences",
+	"redistribute": "Redistribuer",
+	"shareit": "Partagez-le!",
+	"remaining_points": "Points restants",
+	"createdby": "Crée par [Evilsantah]. Toutes les images © Atelier 801.",
+	"translatedby": "Traduction Française par [Tititesouris], [Thiht], [Degrer], [Kerumen], [Gzgregory], [Antoinemaalo], [Sydoline], et [Kkkkkkkkkkzz].",
+	
+	
+    "C_GuideSprirituel": "Guide spirituel",
+    "C_MaitresseDuVent": "Ma\u00eetresse du vent",
+    "C_Mecanicienne": "M\u00e9canicienne",
+    "C_Sauvageonne": "Sauvageonne",
+    "C_Physicienne": "Physicienne",
+    "C_14": "Invoque un nuage.",
+    "C_14_T": "Nuage",
+    "C_11": "Invoque une pomme. Vous pouvez invoquer des objets dans le cercle d'invocation des pommes. Utilisable %1 fois.",
+    "C_11_T": "Pomme",
+    "C_12": "Vous pouvez continuer \u00e0 invoquer des objets apr\u00e8s \u00eatre mort pendant %1 secondes.",
+    "C_12_T": "Esprit ancestral",
+    "C_13": "Invoque un bonus qui permet de faire sauter les souris. Utilisable %1 fois.",
+    "C_13_T": "Ressort",
+    "C_8": "Les balles tombent moins vite. Puissance %1.",
+    "C_8_T": "Anti-gravit\u00e9",
+    "C_9": "T\u00e9l\u00e9porte une souris pr\u00e8s de vous. Utilisable %1 fois.",
+    "C_9_T": "T\u00e9l\u00e9porteur",
+    "C_10": "Invoque un bonus qui permet d'augmenter la vitesse des souris. Utilisable %1 fois.",
+    "C_10_T": "Bonus vitesse",
+    "C_5": "Invoque un objet qui fait gagner une souris. Ne fonctionne que si la souris a un fromage. Utilisable %1 fois.",
+    "C_5_T": "Victoire facile",
+    "C_6": "Ressuscite %1 souris morte(s).",
+    "C_6_T": "Ambulance",
+    "C_7": "Donne votre fromage \u00e0 la souris cibl\u00e9e.",
+    "C_7_T": "Nourriture du chef",
+    "C_2": "Grossit votre Chamane de %1%.",
+    "C_2_T": "Grosse chamane",
+    "C_3": "Lorsque vous dansez, vous faites danser %1 souris \u00e0 proximit\u00e9.",
+    "C_3_T": "Super star",
+    "C_4": "Lorsque vous mourez, vous r\u00e9apparaissez une fois.",
+    "C_4_T": "Increvable",
+    "C_0": "Augmente le temps d'une partie de %1 secondes.",
+    "C_0_T": "Temps suppl\u00e9mentaire",
+    "C_1": "Grossit le fromage de %1%.",
+    "C_1_T": "Gros fromage",
+    "C_34": "En laissant la touche du haut appuy\u00e9e, vous d\u00e9ployez vos ailes.",
+    "C_34_T": "Ange",
+    "C_31": "Donne des pouvoirs de transformation \u00e0 la souris cibl\u00e9e. Utilisable %1 fois.",
+    "C_31_T": "Transformice",
+    "C_32": "Donne %1 gla\u00e7ons suppl\u00e9mentaires.",
+    "C_32_T": "Souris s\u00e9v\u00e8re",
+    "C_33": "Vous pouvez invoquer en vous d\u00e9pla\u00e7ant.",
+    "C_33_T": "Acrobate",
+    "C_28": "Invoque une petite planche. Utilisable %1 fois.",
+    "C_28_T": "Budget serr\u00e9",
+    "C_29": "T\u00e9l\u00e9porte votre chamane \u00e0 l'endroit cibl\u00e9. Utilisable %1 fois.",
+    "C_29_T": "T\u00e9l\u00e9porteur personnel",
+    "C_30": "Projette votre chamane vers l'avant, en appuyant rapidement 2 fois vers la gauche ou la droite.",
+    "C_30_T": "Projection",
+    "C_25": "Lorsque vous \u00eates assis, %1 souris \u00e0 proximit\u00e9 vous font un bisou.",
+    "C_25_T": "Chocobisou",
+    "C_26": "Se baisser pendant un certain temps permet de vous \u00e9jecter vers le haut. Puissance %1.",
+    "C_26_T": "Rocket",
+    "C_27": "Invoque une caisse compagnon.",
+    "C_27_T": "Caisse de compagnie",
+    "C_22": "Augmente les frictions de votre chamane de %1%.",
+    "C_22_T": "Crampons",
+    "C_23": "Diminue la masse de votre chamane de %1%.",
+    "C_23_T": "R\u00e9gime",
+    "C_24": "Lorsque la derni\u00e8re souris entre dans le trou, vous gagnez automatiquement.",
+    "C_24_T": "Opportuniste",
+    "C_20": "Augmente la vitesse de votre chamane de %1%.",
+    "C_20_T": "Endurance",
+    "C_21": "Lorsqu'une souris meurt, elle fait appara\u00eetre une grosse bulle. Se d\u00e9clenche %1 fois.",
+    "C_21_T": "Souris propre",
+    "C_54": "Augmente la port\u00e9e d'invocation de %1%.",
+    "C_54_T": "Vision d'aigle",
+    "C_51": "Vous pouvez supprimer un objet. Utilisable %1 fois.",
+    "C_51_T": "D\u00e9molisseur",
+    "C_52": "Vous pouvez alterner la transparence d'un objet. Utilisable %1 fois.",
+    "C_52_T": "Architecte",
+    "C_53": "Invoque un mouton explosif.",
+    "C_53_T": "Mouton",
+    "C_48": "Les %1 premiers ballons sont invoqu\u00e9s instantan\u00e9ment.",
+    "C_48_T": "Ballon pr\u00e9-gonfl\u00e9",
+    "C_49": "Augmente votre vitesse d'invocation de %1%.",
+    "C_49_T": "Ma\u00eetre invocateur",
+    "C_50": "L'esprit transparent invoque un anti-esprit.",
+    "C_50_T": "Mauvais esprit",
+    "C_45": "Augmente la vitesse des ballons de %1%.",
+    "C_45_T": "Ballon a\u00e9rodynamique",
+    "C_46": "Invoque une rune fixe. Utilisable %1 fois.",
+    "C_46_T": "Rune stable",
+    "C_47": "Invoque une planche en chocolat.",
+    "C_47_T": "Chocoplanche",
+    "C_42": "Augmente le poids des boulets de %1%.",
+    "C_42_T": "Gros boulet",
+    "C_43": "Augmente le poids des enclumes de %1%.",
+    "C_43_T": "Super enclume",
+    "C_44": "Invoque une planche de glace.",
+    "C_44_T": "Planche de glace",
+    "C_40": "Augmente le rayon d'effet de l'esprit de %1%.",
+    "C_40_T": "Gros esprit",
+    "C_41": "Invoque %1 balles suppl\u00e9mentaires.",
+    "C_41_T": "Balles multiples",
+    "C_94": "Vous transforme en chat !",
+    "C_94_T": "Chatmane",
+    "C_80": "Permet \u00e0 une souris de planer avec une feuille. Utilisable %1 fois.",
+    "C_80_T": "Feuille",
+    "C_93": "Augmente la puissance de saut d'une souris. Utilisable %1 fois.",
+    "C_93_T": "\u00c9volution",
+    "C_70": "Augmente votre vitesse d'invocation de %1% pour chaque souris sauv\u00e9e ou morte.",
+    "C_70_T": "Esprit gr\u00e9gaire",
+    "C_72": "Les planches deviennent moins glissantes. Puissance %1.",
+    "C_72_T": "Ronces",
+    "C_81": "Divise les boulets en %1 rochers.",
+    "C_81_T": "\u00c9boulement",
+    "C_92": "R\u00e9initialise toutes vos comp\u00e9tences.",
+    "C_92_T": "Renouveau",
+    "C_66": "Donne la comp\u00e9tence \"meep\" \u00e0 une souris. Utilisable %1 fois.",
+    "C_66_T": "Meep !",
+    "C_71": "Diminue la taille d'une souris. Utilisable %1 fois.",
+    "C_71_T": "Passe par l\u00e0 !",
+    "C_73": "Supprime tous les objets invoqu\u00e9s.",
+    "C_73_T": "Retour de la nature",
+    "C_68": "Diminue la taille de votre chamane de %1%.",
+    "C_68_T": "Petite mais costaude",
+    "C_88": "Invoque une toile d\u2019araign\u00e9e. Utilisable %1 fois.",
+    "C_88_T": "Spidersouris",
+    "C_84": "Invoque un objet en forme de triangle.",
+    "C_84_T": "Symbole de la terre",
+    "C_86": "Place un feu de camp pour un moment convivial ! Dure %1 secondes.",
+    "C_86_T": "Feu de camp",
+    "C_89": "Augmente votre vitesse d'invocation mais diminue votre port\u00e9e d'invocation de %1%.",
+    "C_89_T": "R\u00e9flexe",
+    "C_91": "Quand une souris meurt, elle laisse un petit arc \u00e9lectrique sur lequel les autres souris peuvent rebondir.",
+    "C_91_T": "D\u00e9sint\u00e9gration contr\u00f4l\u00e9e",
+    "C_83": "Place un booster. Utilisable %1 fois.",
+    "C_83_T": "Booster",
+    "C_85": "Accroche deux objets ensemble \u00e0 l'aide d'une cha\u00eene. Utilisable %1 fois.",
+    "C_85_T": "Bricoleuse",
+    "C_90": "Invoque une tr\u00e8s grande planche.",
+    "C_90_T": "Grande planche",
+    "C_63": "D\u00e9sactive la gravit\u00e9 pendant %1 secondes.",
+    "C_63_T": "Anomalie gravitationnelle",
+    "C_74": "Permet de vous accrocher partout. Utilisable %1 fois.",
+    "C_74_T": "Grappin",
+    "C_87": "Invoque un objet en forme de S.",
+    "C_87_T": "S",
+    "C_82": "G\u00e8le les souris autour de vous pendant %1 secondes.",
+    "C_82_T": "Stop !",
+    "C_60": "Emp\u00eache un objet de tourner sur lui m\u00eame. Utilisable %1 fois.",
+    "C_60_T": "R\u00e9paratrice",
+    "C_64": "Les boulets peuvent maintenant \u00eatre dirig\u00e9s vers le haut.",
+    "C_64_T": "Savant fou",
+    "C_65": "Supprime la gravit\u00e9 d'un objet. Utilisable %1 fois.",
+    "C_65_T": "Anti-gravit\u00e9",
+    "C_69": "Permet \u00e0 une souris de rouler sur elle m\u00eame. Utilisable %1 fois.",
+    "C_69_T": "Bouboule",
+    "C_67": "Plus jamais d'\u00e2me s\u0153ur.",
+    "C_67_T": "Solitaire",
+    "C_61": "Lorsque vous vous mettez en col\u00e8re, %1 souris \u00e0 proximit\u00e9 se mettent \u00e0 pleurer.",
+    "C_61_T": "Col\u00e8re",
+    "C_62": "Supprime un clou. Utilisable %1 fois.",
+    "C_62_T": "Recyclage",
+    "skillData": [
+        {
+            "id": 0,
+            "name": "Guide spirituel",
+            "spanClass": "green",
+            "points": 0,
+            "tiers": [
+                {
+                    "skills": [
+                        {
+                            "id": 31,
+                            "name": "Nuage",
+                            "desc": "Invoque un nuage.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 3,
+                            "name": "Pomme",
+                            "desc": "Invoque une pomme. Vous pouvez invoquer des objets dans le cercle d'invocation des pommes. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 14,
+                            "name": "Esprit ancestral",
+                            "desc": "Vous pouvez continuer \u00e0 invoquer des objets apr\u00e8s \u00eatre mort pendant {{level*4}} secondes."
+                        },
+                        {
+                            "id": 4,
+                            "name": "Ressort",
+                            "desc": "Invoque un bonus qui permet de faire sauter les souris. Utilisable {{3}} fois.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 44,
+                            "name": "Anti-gravit\u00e9",
+                            "desc": "Les balles tombent moins vite. Puissance {{level}}."
+                        },
+                        {
+                            "id": 36,
+                            "name": "T\u00e9l\u00e9porteur",
+                            "desc": "T\u00e9l\u00e9porte une souris pr\u00e8s de vous. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 6,
+                            "name": "Bonus vitesse",
+                            "desc": "Invoque un bonus qui permet d'augmenter la vitesse des souris. Utilisable %1 fois.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 11,
+                            "name": "Victoire facile",
+                            "desc": "Invoque un objet qui fait gagner une souris. Ne fonctionne que si la souris a un fromage. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 24,
+                            "name": "Ambulance",
+                            "desc": "Ressuscite {{level}} souris morte(s)."
+                        },
+                        {
+                            "id": 39,
+                            "name": "Nourriture du chef",
+                            "desc": "Donne votre fromage \u00e0 la souris cibl\u00e9e.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 41,
+                            "name": "Grosse chamane",
+                            "desc": "Grossit votre Chamane de {{level*4}}%."
+                        },
+                        {
+                            "id": 7,
+                            "name": "Super star",
+                            "desc": "Lorsque vous dansez, vous faites danser {{level}} souris \u00e0 proximit\u00e9."
+                        },
+                        {
+                            "id": 26,
+                            "name": "Increvable",
+                            "desc": "Lorsque vous mourez, vous r\u00e9apparaissez une fois.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 5,
+                            "name": "Temps suppl\u00e9mentaire",
+                            "desc": "Augmente le temps d'une partie de {{level*5}} secondes.",
+                            "disabled": false
+                        },
+                        {
+                            "id": 10,
+                            "name": "Gros fromage",
+                            "desc": "Grossit le fromage de {{level*10}}%.",
+                            "disabled": false
+                        }
+                    ],
+                    "disabled": false
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Ma\u00eetresse du vent",
+            "spanClass": "blue",
+            "points": 0,
+            "tiers": [
+                {
+                    "skills": [
+                        {
+                            "id": 18,
+                            "name": "Ange",
+                            "desc": "En laissant la touche du haut appuy\u00e9e, vous d\u00e9ployez vos ailes.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 17,
+                            "name": "Transformice",
+                            "desc": "Donne des pouvoirs de transformation \u00e0 la souris cibl\u00e9e. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 12,
+                            "name": "Souris s\u00e9v\u00e8re",
+                            "desc": "Donne {{level}} gla\u00e7ons suppl\u00e9mentaires."
+                        },
+                        {
+                            "id": 13,
+                            "name": "Acrobate",
+                            "desc": "Vous pouvez invoquer en vous d\u00e9pla\u00e7ant.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 29,
+                            "name": "Budget serr\u00e9",
+                            "desc": "Invoque une petite planche. Utilisable {{level*2}} fois."
+                        },
+                        {
+                            "id": 37,
+                            "name": "T\u00e9l\u00e9porteur personnel",
+                            "desc": "T\u00e9l\u00e9porte votre chamane \u00e0 l'endroit cibl\u00e9. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 46,
+                            "name": "Projection",
+                            "desc": "Projette votre chamane vers l'avant, en appuyant rapidement 2 fois vers la gauche ou la droite.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 43,
+                            "name": "Chocokiss",
+                            "desc": "{{level}}"
+                        },
+                        {
+                            "id": 45,
+                            "name": "Rocket",
+                            "desc": "Se baisser pendant un certain temps permet de vous \u00e9jecter vers le haut. Puissance {{level}}."
+                        },
+                        {
+                            "id": 40,
+                            "name": "Caisse de compagnie",
+                            "desc": "Invoque une caisse compagnon.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 9,
+                            "name": "Crampons",
+                            "desc": "Augmente les frictions de votre chamane de {{level*20}}%."
+                        },
+                        {
+                            "id": 16,
+                            "name": "R\u00e9gime",
+                            "desc": "Diminue la masse de votre chamane de {{level*10}}%."
+                        },
+                        {
+                            "id": 15,
+                            "name": "Opportuniste",
+                            "desc": "Lorsque la derni\u00e8re souris entre dans le trou, vous gagnez automatiquement.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 28,
+                            "name": "Endurance",
+                            "desc": "Augmente la vitesse de votre chamane de {{level*4}}%.",
+                            "disabled": false
+                        },
+                        {
+                            "id": 42,
+                            "name": "Souris propre",
+                            "desc": "Lorsqu'une souris meurt, elle fait appara\u00eetre une grosse bulle. Se d\u00e9clenche {{level}} fois.",
+                            "disabled": false
+                        }
+                    ],
+                    "disabled": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "M\u00e9canicienne",
+            "spanClass": "orange",
+            "points": 0,
+            "tiers": [
+                {
+                    "skills": [
+                        {
+                            "id": 22,
+                            "name": "Vision d'aigle",
+                            "desc": "Augmente la port\u00e9e d'invocation de {{30}}%.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 25,
+                            "name": "D\u00e9molisseur",
+                            "desc": "Vous pouvez supprimer un objet. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 34,
+                            "name": "Architecte",
+                            "desc": "Vous pouvez alterner la transparence d'un objet. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 30,
+                            "name": "Mouton",
+                            "desc": "Invoque un mouton explosif.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 1,
+                            "name": "Ballon pr\u00e9-gonfl\u00e9",
+                            "desc": "Les {{level}} premiers ballons sont invoqu\u00e9s instantan\u00e9ment."
+                        },
+                        {
+                            "id": 27,
+                            "name": "Ma\u00eetre invocateur",
+                            "desc": "Augmente votre vitesse d'invocation de {{level*6}}%."
+                        },
+                        {
+                            "id": 8,
+                            "name": "Mauvais esprit",
+                            "desc": "L'esprit transparent invoque un anti-esprit.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 38,
+                            "name": "Ballon a\u00e9rodynamique",
+                            "desc": "Augmente la vitesse des ballons de {{level*10}}%."
+                        },
+                        {
+                            "id": 35,
+                            "name": "Rune stable",
+                            "desc": "Invoque une rune fixe. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 32,
+                            "name": "Chocoplanche",
+                            "desc": "Invoque une planche en chocolat.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 20,
+                            "name": "Gros boulet",
+                            "desc": "Augmente le poids des boulets de {{level*20}}%."
+                        },
+                        {
+                            "id": 21,
+                            "name": "Super enclume",
+                            "desc": "Augmente le poids des enclumes de {{level*20}}%."
+                        },
+                        {
+                            "id": 33,
+                            "name": "Planche de glace",
+                            "desc": "Invoque une planche de glace.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 23,
+                            "name": "Gros esprit",
+                            "desc": "Augmente le rayon d'effet de l'esprit de {{level*10}}%.",
+                            "disabled": false
+                        },
+                        {
+                            "id": 2,
+                            "name": "Balles multiples",
+                            "desc": "Invoque {{level}} balles suppl\u00e9mentaires.",
+                            "disabled": false
+                        }
+                    ],
+                    "disabled": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Sauvageonne",
+            "spanClass": "yellow",
+            "points": 0,
+            "tiers": [
+                {
+                    "skills": [
+                        {
+                            "id": 76,
+                            "name": "Chatmane",
+                            "desc": "Vous transforme en chat !",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 62,
+                            "name": "Feuille",
+                            "desc": "Permet \u00e0 une souris de planer avec une feuille. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 75,
+                            "name": "\u00c9volution",
+                            "desc": "Augmente la puissance de saut d'une souris. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 57,
+                            "name": "Esprit gr\u00e9gaire",
+                            "desc": "Augmente votre vitesse d'invocation de {{2}}% pour chaque souris sauv\u00e9e ou morte.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 59,
+                            "name": "Ronces",
+                            "desc": "Les planches deviennent moins glissantes. Puissance {{level}}."
+                        },
+                        {
+                            "id": 63,
+                            "name": "\u00c9boulement",
+                            "desc": "Divise les boulets en {{level}} rochers."
+                        },
+                        {
+                            "id": 74,
+                            "name": "Renouveau",
+                            "desc": "R\u00e9initialise toutes vos comp\u00e9tences.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 53,
+                            "name": "Meep !",
+                            "desc": "Donne la comp\u00e9tence \"meep\" \u00e0 une souris. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 58,
+                            "name": "Passe par l\u00e0 !",
+                            "desc": "Diminue la taille d'une souris. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 60,
+                            "name": "Retour de la nature",
+                            "desc": "Supprime tous les objets invoqu\u00e9s.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 55,
+                            "name": "Petite mais costaude",
+                            "desc": "Diminue la taille de votre chamane de {{level*4}}%."
+                        },
+                        {
+                            "id": 70,
+                            "name": "Spidersouris",
+                            "desc": "Invoque une toile d\u2019araign\u00e9e. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 66,
+                            "name": "Symbole de la terre",
+                            "desc": "Invoque un objet en forme de triangle.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 68,
+                            "name": "Feu de camp",
+                            "desc": "Place un feu de camp pour un moment convivial ! Dure {{level*4}} secondes.",
+                            "disabled": false
+                        },
+                        {
+                            "id": 71,
+                            "name": "R\u00e9flexe",
+                            "desc": "Augmente votre vitesse d'invocation mais diminue votre port\u00e9e d'invocation de {{level*4}}%.",
+                            "disabled": false
+                        }
+                    ],
+                    "disabled": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Physicienne",
+            "spanClass": "purple",
+            "points": 0,
+            "tiers": [
+                {
+                    "skills": [
+                        {
+                            "id": 73,
+                            "name": "D\u00e9sint\u00e9gration contr\u00f4l\u00e9e",
+                            "desc": "Quand une souris meurt, elle laisse un petit arc \u00e9lectrique sur lequel les autres souris peuvent rebondir.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 65,
+                            "name": "Booster",
+                            "desc": "Place un booster. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 67,
+                            "name": "Bricoleuse",
+                            "desc": "Accroche deux objets ensemble \u00e0 l'aide d'une cha\u00eene. Utilisable {{level*2}} fois."
+                        },
+                        {
+                            "id": 72,
+                            "name": "Grande planche",
+                            "desc": "Invoque une tr\u00e8s grande planche.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 50,
+                            "name": "Anomalie gravitationnelle",
+                            "desc": "D\u00e9sactive la gravit\u00e9 pendant {{level*2}} secondes."
+                        },
+                        {
+                            "id": 61,
+                            "name": "Grappin",
+                            "desc": "Permet de vous accrocher partout. Utilisable {{level*2}} fois."
+                        },
+                        {
+                            "id": 69,
+                            "name": "S",
+                            "desc": "Invoque un objet en forme de S.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 64,
+                            "name": "Stop !",
+                            "desc": "G\u00e8le les souris autour de vous pendant {{level*2}} secondes."
+                        },
+                        {
+                            "id": 47,
+                            "name": "R\u00e9paratrice",
+                            "desc": "Emp\u00eache un objet de tourner sur lui m\u00eame. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 51,
+                            "name": "Savant fou",
+                            "desc": "Les boulets peuvent maintenant \u00eatre dirig\u00e9s vers le haut.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 52,
+                            "name": "Anti-gravit\u00e9",
+                            "desc": "Supprime la gravit\u00e9 d'un objet. Utilisable {{level*2}} fois."
+                        },
+                        {
+                            "id": 56,
+                            "name": "Bouboule",
+                            "desc": "Permet \u00e0 une souris de rouler sur elle m\u00eame. Utilisable {{level}} fois."
+                        },
+                        {
+                            "id": 54,
+                            "name": "Solitaire",
+                            "desc": "Plus jamais d'\u00e2me s\u0153ur.",
+                            "maxLevel": 1
+                        }
+                    ]
+                },
+                {
+                    "skills": [
+                        {
+                            "id": 48,
+                            "name": "Col\u00e8re",
+                            "desc": "Lorsque vous vous mettez en col\u00e8re, {{level}} souris \u00e0 proximit\u00e9 se mettent \u00e0 pleurer.",
+                            "disabled": false
+                        },
+                        {
+                            "id": 49,
+                            "name": "Recyclage",
+                            "desc": "Supprime un clou. Utilisable {{level}} fois.",
+                            "disabled": false
+                        }
+                    ],
+                    "disabled": false
+                }
+            ]
+        }
+    ]
+}

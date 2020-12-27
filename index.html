@@ -3,26 +3,64 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<link href="css/style_skill_builder.css" media="all" type="text/css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="all" type="text/css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css" media="all" type="text/css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" media="all" type="text/css" rel="stylesheet">
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/includes.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-	<script src="i18n/tfm.skilldata.en.min.js"></script>
+	<!-- <script src="i18n/tfm.skilldata.en.min.js"></script> -->
 	
 	<script src="js/tfm.skilltree.min.js"></script>
+	<style>
+		li { display:inline-block; }
+		
+		#skill-window { position: relative; }
+		#lang-picker {
+			position: absolute;
+			left: 20px;
+			top: 20px;
+		}
+	</style>
 </head>
 <body>
-	Original by <a href="https://atelier801.com/topic?f=6&t=352437">Evilsantah</a>, and can be found <a href="https://web.archive.org/web/20160913122051/http://cheese.formice.com/skill-tree">here</a>. Minor changes by Fewfre. Thanks to the Wayback Machine / Internet Archive for archiving it all these years.
+	Original by <a href="https://atelier801.com/topic?f=6&t=352437">Evilsantah</a>. Minor changes by Fewfre. Thanks to the Wayback Machine / Internet Archive for archiving it all these years.
 	<br />
 	Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.
 	
 	<div id="container">
-			<div class="lang">		<span id="lang_select"><div class="dropdown"><a href="javascript:void(0)">Language</a><div class="noSelect" style="user-select: none;"><ul>
-			<li><a href="https://web.archive.org/web/20160913122051/http://cheese.formice.com/skill-tree">English</a></li><li><a href="https://web.archive.org/web/20160913122051/http://br.cheese.formice.com/skill-tree">Português</a></li><li><a href="https://web.archive.org/web/20160913122051/http://tr.cheese.formice.com/skill-tree">Türkçe</a></li><li><a href="https://web.archive.org/web/20160913122051/http://es.cheese.formice.com/skill-tree">Español</a></li><li><a href="https://web.archive.org/web/20160913122051/http://fr.cheese.formice.com/skill-tree">Français</a></li><li><a href="https://web.archive.org/web/20160913122051/http://ru.cheese.formice.com/skill-tree">Русский</a></li><li><a href="https://web.archive.org/web/20160913122051/http://nl.cheese.formice.com/skill-tree">Nederlands</a></li><li><a href="https://web.archive.org/web/20160913122051/http://no.cheese.formice.com/skill-tree">Norsk</a></li><li><a href="https://web.archive.org/web/20160913122051/http://pl.cheese.formice.com/skill-tree">Polski</a></li><li><a href="https://web.archive.org/web/20160913122051/http://hu.cheese.formice.com/skill-tree">Magyar</a></li><li><a href="https://web.archive.org/web/20160913122051/http://ro.cheese.formice.com/skill-tree">Română</a></li><li><a href="https://web.archive.org/web/20160913122051/http://id.cheese.formice.com/skill-tree">Bahasa Indonesia</a></li><li><a href="https://web.archive.org/web/20160913122051/http://cn.cheese.formice.com/skill-tree">中文</a></li><li><a href="https://web.archive.org/web/20160913122051/http://lv.cheese.formice.com/skill-tree">Latviešu</a></li><li><a href="https://web.archive.org/web/20160913122051/http://it.cheese.formice.com/skill-tree">Italiano</a></li><li><a href="https://web.archive.org/web/20160913122051/http://bg.cheese.formice.com/skill-tree">Български</a></li>		</ul></div></div>
+			<div class="lang">
+			<span id="lang_select">
+				<div class="dropdown"><a href="javascript:void(0)">Language</a><div class="noSelect" style="user-select: none;">
+				<ul>
+					<li><a onclick="setLanguage('en')">English</a></li>
+					<li><a onclick="setLanguage('br')">Português</a></li>
+					<li><a onclick="setLanguage('tr')">Türkçe</a></li>
+					<li><a onclick="setLanguage('es')">Español</a></li>
+					<li><a onclick="setLanguage('fr')">Français</a></li>
+					<li><a onclick="setLanguage('ru')">Русский</a></li>
+					<li><a onclick="setLanguage('nl')">Nederlands</a></li>
+					<li><a onclick="setLanguage('no')">Norsk</a></li>
+					<li><a onclick="setLanguage('pl')">Polski</a></li>
+					<li><a onclick="setLanguage('hu')">Magyar</a></li>
+					<li><a onclick="setLanguage('ro')">Română</a></li>
+					<li><a onclick="setLanguage('id')">Bahasa Indonesia</a></li>
+					<li><a onclick="setLanguage('cn')">中文</a></li>
+					<li><a onclick="setLanguage('lv')">Latviešu</a></li>
+					<li><a onclick="setLanguage('it')">Italiano</a></li>
+					<li><a onclick="setLanguage('bg')">Български</a></li>
+				</ul>
+				</div></div>
 			</span>
 			</div>
+			
 		
-			<div class="centered"><h2>Transformice Skill Tree Builder</h2><br><div id="skill-tree-builder">
+			<div class="centered"><div id="skill-tree-builder">
+				<h2 id="skill-tree-title">Transformice Skill Tree Builder</h2>
 				
 				<div id="popup-overlay">
 					<div id="popup-window" class="rounded">
@@ -33,6 +71,13 @@
 					</div>
 				</div>
 				<div id="skill-window" class="center">
+				
+					<div id="lang-picker">
+						<select class="selectpicker" data-width="fit">
+							<option data-content='<span class="flag-icon flag-icon-us"></span>'>English</option>
+							<option data-content='<span class="flag-icon flag-icon-es"></span>'>Español</option>
+						</select>
+					</div>
 					<div id="skill-table"><div class="skill-table-column stats-panel">
 					<div id="xp-bar">
 						<div id="xp-bar-progress" style="width: 100%;"></div>
@@ -58,7 +103,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Cloud</span> - 0/1</span>
 						<p class="tooltip-desc">Summons a cloud.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -61px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -88,7 +134,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Spring</span> - 0/1</span>
 						<p class="tooltip-desc">Summons a bonus that makes the mice bounce. Can be used <span class="tooltip-desc-var">3</span> times.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1291px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -118,7 +165,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Speed boost</span> - 0/1</span>
 						<p class="tooltip-desc">Summons a bonus that increases the mice's speed. </p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -301px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -148,7 +196,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Chief's food</span> - 0/1</span>
 						<p class="tooltip-desc">Gives your cheese to the chosen mouse.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1201px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -178,7 +227,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Unburstable</span> - 0/1</span>
 						<p class="tooltip-desc">When you die, you can revive once.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item" style="background-position: -121px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -212,7 +262,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Angel</span> - 0/1</span>
 						<p class="tooltip-desc">You can deploy your wings by pressing the up button.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -481px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -242,7 +293,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Acrobat</span> - 0/1</span>
 						<p class="tooltip-desc">You can summon while moving.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -841px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -272,7 +324,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Projection</span> - 0/1</span>
 						<p class="tooltip-desc">Propels your Shaman forward by pressing twice left or right.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1261px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -302,7 +355,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Companion crate</span> - 0/1</span>
 						<p class="tooltip-desc">Summons a Companion Crate.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -241px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -332,7 +386,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Opportunist</span> - 0/1</span>
 						<p class="tooltip-desc">When the last mouse enters the hole, you automatically win.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item" style="background-position: -811px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -366,7 +421,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Eagle eye</span> - 0/1</span>
 						<p class="tooltip-desc">Increases the summoning range by <span class="tooltip-desc-var">30</span>%.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -721px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -396,7 +452,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Sheep</span> - 0/1</span>
 						<p class="tooltip-desc">Summons an explosive sheep. Baa!</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -426,7 +483,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Anti-spirit</span> - 0/1</span>
 						<p class="tooltip-desc">The transparent spirit summons an Anti-spirit.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1111px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -456,7 +514,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Chocoplank</span> - 0/1</span>
 						<p class="tooltip-desc">Summons a chocolate plank</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -571px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -486,7 +545,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Ice plank</span> - 0/1</span>
 						<p class="tooltip-desc">Summons an ice plank.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item" style="background-position: -661px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -520,7 +580,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Shameow</span> - 0/1</span>
 						<p class="tooltip-desc">Turns you into a cat!</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1831px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -550,7 +611,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Gregarious spirit</span> - 0/1</span>
 						<p class="tooltip-desc">Increases your summoning speed by <span class="tooltip-desc-var">2</span>% for each saved or dead mouse.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1741px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -580,7 +642,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Renewal</span> - 0/1</span>
 						<p class="tooltip-desc">Resets all your skills.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1561px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -610,7 +673,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Nature's return</span> - 0/1</span>
 						<p class="tooltip-desc">Removes all the summoned objects.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1621px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -640,7 +704,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Earth symbol</span> - 0/1</span>
 						<p class="tooltip-desc">Summons a triangle-shaped object.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item" style="background-position: -2011px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -674,7 +739,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Controlled disintegration</span> - 0/1</span>
 						<p class="tooltip-desc">When a mouse dies, it leaves a small electrical arc on which other mice can bounce.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1921px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -704,7 +770,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Big plank</span> - 0/1</span>
 						<p class="tooltip-desc">Summons a very big plank.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1471px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -734,7 +801,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">S</span> - 0/1</span>
 						<p class="tooltip-desc">Summons an S shaped object.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1891px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -764,7 +832,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Mad scientist</span> - 0/1</span>
 						<p class="tooltip-desc">Cannon balls can now be upwardly directed.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item disabled" style="background-position: -1531px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -794,7 +863,8 @@
 						<span class="tooltip-header"><span class="tooltip-name">Solitary</span> - 0/1</span>
 						<p class="tooltip-desc">No more soulmate.</p>
 					</div>
-				</div></li><li><div>
+				</div></li>
+			<li><div>
 					<div class="skill-item" style="background-position: -1411px -1px;">
 						<div class="skill-item-layer">
 							<span class="skill-item-level">0/5</span>
@@ -819,7 +889,7 @@
 					<span class="points purple">0</span>
 				</div></div>
 				</div>
-				<div id="footer">Created by <a href="https://web.archive.org/web/20160913122051/http://cheese.formice.com/mouse/Evilsantah.217470" target="_blank">Evilsantah</a>. All images © Atelier 801.</div>
+				<div id="footer">Created by <a href="https://atelier801.com/profile?pr=Evilsantah" target="_blank">Evilsantah</a>. All images © Atelier 801.</div>
 	
 				<script type="text/template" id="skill-template">
 					<div class="skill-item">
@@ -841,8 +911,8 @@
 					<div id="xp-bar">
 						<div id="xp-bar-progress"></div>
 					</div>
-					<button id="redist-btn" title="Redistribute"></button>
-					<button id="share-btn" title="Share it!"></button>
+					<button id="redist-btn" title="<%= i18nRedistribute %>"></button>
+					<button id="share-btn" title="<%= i18nShareit %>"></button>
 					<div id="level-wings">
 						<div id="level-btn">
 							<span id="level-label"><%= level %></span>
@@ -850,7 +920,7 @@
 							<div id="down-btn" class="level-btn-img default"></div>
 						</div>
 					</div>
-					<span id="remaining-pts">Remaining points: <%= remainingPoints %></span>
+					<span id="remaining-pts"><%= i18nRemainingPoints %>: <%= remainingPoints %></span>
 				</script>
 		
 	</div></div>	</div>

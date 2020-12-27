@@ -574,4 +574,35 @@
 	color: #f4fa32;
 }
 
-/* Modal */
+/* Lang Picker Button + Modal */
+#skill-window { position: relative; }
+#lang-picker {
+	position: absolute;
+	left: 18px;
+	top: 18px;
+}
+#lang-picker .btn {
+	display: inline-block;
+	background: #040708;
+	padding: 3px;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+#lang-picker .btn:hover {
+	background: #2a555a;
+	border: 1px solid #315f63;
+}
+
+.featherlight .featherlight-content {
+	background: #6a7495;
+	color: #c2c2da;
+}
+
+.featherlight .featherlight-content h2 {
+	margin-top: 0;
+}
+
+.lang-button-column { float:left; }
+.lang-button-column:after { content:""; clear:both; }
+.lang-button { float:left; clear:left; width: 100%; text-align: left; }
+.lang-button img { vertical-align: middle; }

@@ -3,28 +3,50 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<link href="css/style_skill_builder.css" media="all" type="text/css" rel="stylesheet">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="all" type="text/css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css" media="all" type="text/css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" media="all" type="text/css" rel="stylesheet">
+	<link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css" type="text/css" rel="stylesheet" />
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/includes.js"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
 	<!-- <script src="i18n/tfm.skilldata.en.min.js"></script> -->
 	
 	<script src="js/tfm.skilltree.min.js"></script>
+	
 	<style>
 		li { display:inline-block; }
 		
 		#skill-window { position: relative; }
 		#lang-picker {
 			position: absolute;
-			left: 20px;
-			top: 20px;
+			left: 18px;
+			top: 18px;
 		}
+		#lang-picker .btn {
+			display: inline-block;
+			background: #040708;
+			padding: 3px;
+			border-radius: 3px;
+			box-sizing: border-box;
+		}
+		#lang-picker .btn:hover {
+			background: #2a555a;
+			border: 1px solid #315f63;
+		}
+		
+		.featherlight .featherlight-content {
+			background: #6a7495;
+			color: #c2c2da;
+		}
+		
+		.featherlight .featherlight-content h2 {
+			margin-top: 0;
+		}
+		
+		.server-button-column { float:left; }
+		.server-button-column:after { content:""; clear:both; }
+		.server-button { float:left; clear:left; width: 100%; text-align: left; }
+		.server-button img { vertical-align: middle; }
 	</style>
 </head>
 <body>
@@ -33,32 +55,6 @@
 	Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.
 	
 	<div id="container">
-			<div class="lang">
-			<span id="lang_select">
-				<div class="dropdown"><a href="javascript:void(0)">Language</a><div class="noSelect" style="user-select: none;">
-				<ul>
-					<li><a onclick="setLanguage('en')">English</a></li>
-					<li><a onclick="setLanguage('br')">Português</a></li>
-					<li><a onclick="setLanguage('tr')">Türkçe</a></li>
-					<li><a onclick="setLanguage('es')">Español</a></li>
-					<li><a onclick="setLanguage('fr')">Français</a></li>
-					<li><a onclick="setLanguage('ru')">Русский</a></li>
-					<li><a onclick="setLanguage('nl')">Nederlands</a></li>
-					<li><a onclick="setLanguage('no')">Norsk</a></li>
-					<li><a onclick="setLanguage('pl')">Polski</a></li>
-					<li><a onclick="setLanguage('hu')">Magyar</a></li>
-					<li><a onclick="setLanguage('ro')">Română</a></li>
-					<li><a onclick="setLanguage('id')">Bahasa Indonesia</a></li>
-					<li><a onclick="setLanguage('cn')">中文</a></li>
-					<li><a onclick="setLanguage('lv')">Latviešu</a></li>
-					<li><a onclick="setLanguage('it')">Italiano</a></li>
-					<li><a onclick="setLanguage('bg')">Български</a></li>
-				</ul>
-				</div></div>
-			</span>
-			</div>
-			
-		
 			<div class="centered"><div id="skill-tree-builder">
 				<h2 id="skill-tree-title">Transformice Skill Tree Builder</h2>
 				
@@ -71,12 +67,8 @@
 					</div>
 				</div>
 				<div id="skill-window" class="center">
-				
 					<div id="lang-picker">
-						<select class="selectpicker" data-width="fit">
-							<option data-content='<span class="flag-icon flag-icon-us"></span>'>English</option>
-							<option data-content='<span class="flag-icon flag-icon-es"></span>'>Español</option>
-						</select>
+						<span class="btn"><img src="images/flags/en.png" height="24" /></span>
 					</div>
 					<div id="skill-table"><div class="skill-table-column stats-panel">
 					<div id="xp-bar">

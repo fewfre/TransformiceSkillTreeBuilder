@@ -11,11 +11,11 @@
 /* Credits to whoever made this font public */
 @font-face {
 	font-family: 'soopafreshregular';
-	src: url('/css/fonts/soopafre.eot');
-	src: url('/css/fonts/soopafre.eot#iefix') format('embedded-opentype'),
-		url('/css/fonts/soopafre.woff') format('woff'),
-		url('/css/fonts/soopafre.ttf') format('truetype'),
-		url('/css/fonts/soopafre.svg#soopafreshregular') format('svg');
+	src: url('fonts/soopafre.eot');
+	src: url('fonts/soopafre.eot#iefix') format('embedded-opentype'),
+		url('fonts/soopafre.woff') format('woff'),
+		url('fonts/soopafre.ttf') format('truetype'),
+		url('fonts/soopafre.svg#soopafreshregular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -575,7 +575,6 @@
 }
 
 /* Lang Picker Button + Modal */
-#skill-window { position: relative; }
 #lang-picker {
 	position: absolute;
 	left: 18px;
@@ -594,7 +593,7 @@
 }
 
 .featherlight .featherlight-content {
-	background: #6a7495;
+	background: #6A7495;
 	color: #c2c2da;
 }
 
@@ -602,7 +601,23 @@
 	margin-top: 0;
 }
 
-.lang-button-column { float:left; }
+.lang-button-column { float:left; padding:0 2px; }
 .lang-button-column:after { content:""; clear:both; }
-.lang-button { float:left; clear:left; width: 100%; text-align: left; }
+.lang-button {
+	float:left;
+	clear:left;
+	width: 100%;
+	text-align: left;
+	
+	background: #3C5064;
+	color: #FFD800;
+	border: 1px solid #5D7A91;
+	margin: 2px 0;
+}
+.lang-button:hover {
+	background: #42586E;
+}
+.lang-button.selected {
+	background: #2C3947;
+}
 .lang-button img { vertical-align: middle; }

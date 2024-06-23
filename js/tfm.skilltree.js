@@ -499,21 +499,29 @@ const StatisticsPanel = Backbone.Marionette.ItemView.extend({
 		}
 		
 		const $shareInput = popup.find("#share-link");
+		const $bitlyButtonCont = popup.find("#bitly-button-cont");
+		const $bitlyButton = popup.find("#bitly-button");
 		const $bitlyInput = popup.find("#bitly-link");
 		// If the url has changed - no reason to generate shortcode again
 		if($shareInput.val() != url) {
 			$shareInput.val(url);
 			$shareInput.select();
 			
-			$bitlyInput.toggle(showShortLink);
+			$bitlyButtonCont.toggle(showShortLink);
+			$bitlyInput.toggle(showShortLink && $bitlyButtonCont.length); // Never show until bitly button clicked (and then hides itself)
 			if(showShortLink) {
-				$bitlyInput.val("Loading...");
-				this._requestBitly(url).then(function(shortUrl){
-					$bitlyInput.val(shortUrl);
-					$bitlyInput.select();
-				}).catch(function(err){
-					$bitlyInput.val("[Error]");
-					console.error(err);
+				$bitlyButton.on('click', ()=>{
+					$bitlyButtonCont.remove();
+					$bitlyInput.toggle(true);
+					
+					$bitlyInput.val("Loading...");
+					this._requestBitly(url).then(function(shortUrl){
+						$bitlyInput.val(shortUrl);
+						$bitlyInput.select();
+					}).catch(function(err){
+						$bitlyInput.val(err.status != 429 ? "[Error]" : "[Error] Site's bit.ly monthly quota reached");
+						console.error(err);
+					});
 				});
 			}
 		} else {
@@ -942,8 +950,10 @@ function translateNonSkillData(lang) {
 	const translatedby = regexNameToLink(i18n["translatedby"]);
 	$("#footer").html(createdby + (translatedby ? "<hr style='margin:3px;' />"+translatedby : translatedby));
 	
-	$("#popup-window .indent").html( i18n["copy_hotkey"].replace("$1", `<span class="hotkey">${isMac() ? "Cmd" : "Ctrl"}-C</span>`) );
+	$("#popup-window .indent").html( i18n["copy_hotkey"].replace("$1", `<span class="hotkey">${isMac() ? "Cmd" : "Ctrl"}-C</span>`).replace("{{0}}", `<span class="hotkey">${isMac() ? "Cmd" : "Ctrl"}-C</span>`) );
 	$("#skill-tree-title").html(i18n["title"]);
+	if(i18n["getbitlylink"]) $("#bitly-button").html( i18n["getbitlylink"] );
+	if(i18n["getbitlylink_desc"]) $("#bitly-button-cont p").html( i18n["getbitlylink_desc"] );
 	
 	$("#lang-picker .btn img").attr("src", `images/flags/${lang}.png`);
 }

@@ -4,6 +4,8 @@
 	"copy_hotkey": "Copy $1 one of these links to share your skill build",
 	"redistribute": "Redistribute",
 	"shareit": "Share it!",
+	"getbitlylink": "Get bit.ly link",
+	"getbitlylink_desc": "(as of 2024 Bitly now only allows a certain number of free links per month - please only request if you're actually going to use it)",
 	"remaining_points": "Remaining points",
 	"createdby": "Created by [Evilsantah]. All images © Atelier 801.",
 	"translatedby": "",

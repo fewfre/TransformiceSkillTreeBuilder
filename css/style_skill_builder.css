@@ -138,7 +138,7 @@
 	box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,.3);
 }
 #skill-tree-builder #popup-window input#bitly-link {
-	width: 320px;
+	min-width: 320px;
 	background-image: url('../images/bitly.png');
 	background-repeat: no-repeat;
 	background-position: 330px center;

@@ -499,48 +499,78 @@ const StatisticsPanel = Backbone.Marionette.ItemView.extend({
 		}
 		
 		const $shareInput = popup.find("#share-link");
-		const $bitlyInput = popup.find("#bitly-link");
+		const $shortInput = popup.find("#short-link");
 		// If the url has changed - no reason to generate shortcode again
 		if($shareInput.val() != url) {
 			$shareInput.val(url);
 			$shareInput.select();
 			
-			$bitlyInput.toggle(showShortLink);
+			$shortInput.toggle(showShortLink);
 			if(showShortLink) {
-				$bitlyInput.val("Loading...");
-				this._requestBitly(url).then(function(shortUrl){
-					$bitlyInput.val(shortUrl);
-					$bitlyInput.select();
+				$shortInput.val("Loading...");
+				this._requestShortLink(url).then(function(shortUrl){
+					$shortInput.val(shortUrl);
+					$shortInput.select();
 				}).catch(function(err){
-					$bitlyInput.val("[Error]");
+					$shortInput.val("[Error]");
 					console.error(err);
 				});
 			}
 		} else {
-			(showShortLink ? $shareInput : $bitlyInput).select();
+			(showShortLink ? $shareInput : $shortInput).select();
 		}
 		
 		popup.fadeIn(200);
 	},
-	_requestBitly: function(shareUrl) {
+	_requestShortLink: function(shareUrl) {
 		return new Promise(function(resolve,reject){
-			const accessToken = "acf583b2ce5911cf43c2f1df77ec7af7f711cbcf";
-			const data = { "long_url": shareUrl };
+			const accessToken = "pk_ryEg9Tw8cqhoSsqz";
+			
+			// fetch('https://api.short.io/links/public', {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Accept': 'application/json',
+			// 		'Content-Type': 'application/json',
+			// 		'authorization': 'pk_ryEg9Tw8cqhoSsqz'
+			// 	},
+			// 	body: JSON.stringify({ originalURL:shareUrl, domain: 's.fewfre.com' })
+			// })
+			// .then(resp=>resp.json())
+			// .then(resp=>resolve(resp.shortURL))
+			// .catch(reject);
 			
 			$.ajax({
-				url: "https://api-ssl.bitly.com/v4/shorten",
+				url: "https://api.short.io/links/public",
 				cache: false,
 				dataType: "json",
 				method: "POST",
 				contentType: "application/json",
 				beforeSend: function (xhr) {
-					xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+					xhr.setRequestHeader("authorization", accessToken);
 				},
-				data: JSON.stringify(data)
+				data: JSON.stringify({ originalURL:shareUrl, domain: 's.fewfre.com' })
 			})
-			.done((resp) => { resolve(resp.link); })
+			.done(resp => { resolve(resp.shortURL); })
 			.fail(reject);
 		});
+		// return new Promise(function(resolve,reject){
+		// 	const accessToken = "acf583b2ce5911cf43c2f1df77ec7af7f711cbcf";
+		// 	const data = { "long_url": shareUrl };
+			
+		// 	$.ajax({
+		// 		url: "https://api-ssl.bitly.com/v4/shorten",
+		// 		cache: false,
+		// 		dataType: "json",
+		// 		method: "POST",
+		// 		contentType: "application/json",
+		// 		beforeSend: function (xhr) {
+		// 			xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+		// 		},
+		// 		data: JSON.stringify(data)
+		// 	})
+		// 	.done((resp) => { resolve(resp.link); })
+		// 	.fail(reject);
+		// });
 	},
 	onRedistribute: function() {
 		_.each(this.options.skillTrees, function(e) {
